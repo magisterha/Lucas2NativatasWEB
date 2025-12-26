@@ -1,0 +1,120 @@
+:root {
+    --bg-color: #fdfbf7; /* Tono papel antiguo */
+    --text-main: #2c3e50;
+    --accent: #8e44ad;   /* Púrpura litúrgico/imperial */
+    --border: #dcdcdc;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header simple para volver al index */
+header {
+    padding: 10px 20px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Contenedor Principal: Grid 2/3 izquierda, 1/3 derecha */
+.main-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    flex-grow: 1;
+    height: calc(100vh - 60px - 60px); /* Restar header y footer */
+    overflow: hidden;
+}
+
+/* Panel Izquierdo: Latín */
+.latin-panel {
+    padding: 40px;
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+}
+
+#latin-text {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.clickable-word {
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+.clickable-word:hover, .clickable-word.active {
+    color: var(--accent);
+    background-color: rgba(142, 68, 173, 0.1);
+}
+
+/* Panel Derecho: Análisis y Notas */
+.info-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+}
+
+.info-section {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    overflow-y: auto;
+}
+
+/* Alturas proporcionales aproximadas */
+#morphology-box { flex: 0 0 30%; background: #f9f9f9; } /* Superior */
+#scholarly-note-box { flex: 0 0 30%; } /* Medio */
+#general-commentary-box { flex: 1; }   /* Inferior */
+
+h3 {
+    margin-top: 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #7f8c8d;
+    letter-spacing: 1px;
+}
+
+/* Navegación Inferior */
+.nav-footer {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: #eee;
+    border-top: 1px solid var(--border);
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    border: 1px solid #aaa;
+    background: #fff;
+    transition: all 0.2s;
+}
+
+button:hover { background: var(--accent); color: white; border-color: var(--accent); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Selector de idioma */
+.lang-selector select {
+    padding: 5px;
+    font-family: inherit;
+}
